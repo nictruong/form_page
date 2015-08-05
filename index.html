@@ -1,0 +1,132 @@
+<html>
+<head>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libraries/bootstrap-colorpickersliders-master/src/bootstrap.colorpickersliders.css">
+	<link rel="stylesheet" href="css/myStyle.css">
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div id="search"></div>
+		<div id="searchList"></div>
+		<div id="title"></div>
+		<div id="counters"></div>
+		<div id="search2"></div>
+		<div id="domainList"></div>
+		<div class="row"><div id="select" class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div></div>
+		<div id="submit"></div>
+		<div id="create"></div>
+	</div>
+
+	<script type="text/template" id="search_template">
+		<div class="row">
+		    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			    <div class="input-group">
+			      	<input type="text" id="searchPage" class="form-control" placeholder="Page">
+			      	<span class="input-group-btn">
+			        	<button class="btn btn-primary" type="button" id="searchPage_button">Search</button>
+			      	</span>
+			   	</div>
+			</div>
+		</div>
+	</script>
+
+    <script type="text/template" id="searchList_template">
+        <button type="button" class="domain_link btn btn-link btn-sm"><%- name %></button>
+    </script>
+
+    <script type="text/template" id="counter_template">
+    	<div class="row">
+	        <div class="counterId"><%- name %>: <%- id %></div>
+	        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			    <div class="input-group">
+			      	<input type="text" id="<%- id %>" name="<%- name %>" class="counter form-control" placeholder="Displayed Name" value="<% if (typeof displayedName !== 'undefined') { %><%- displayedName %><% }%>"></input>
+			      	<span class="input-group-btn">
+			        	<button class="btn btn-danger" type="button" id="remove_button">Remove</button>
+			      	</span>
+			   	</div>
+			</div>
+	     </div>
+    </script>
+
+    <script type="text/template" id="select_template">
+    	<%- name %>: <%- id %>
+    </script>
+
+    <script type="text/template" id="search2_template">
+		<div class="row">
+		    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			    <div class="input-group">
+			      	<input type="text" id="search_input" class="form-control" placeholder="Domain">
+			      	<span class="input-group-btn">
+			        	<button class="btn btn-primary" type="button" id="search_button">Search</button>
+			      	</span>
+			   	</div>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/template" id="submit_template">
+		<div class="row">
+			<button class="btn btn-primary" type="button" id="submit_button">Include Selected Counters</button>
+		</div>
+	</script>
+
+	<script type="text/template" id="create_template">
+		<div class="row">
+			<button class="btn btn-danger" type="button" id="create_button">Create Page</button>
+		</div>
+	</script>
+
+	<script type="text/template" id="title_template">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+			    <input type="text" id="title" class="title form-control" placeholder="Displayed Title" value="<% if (typeof name !== 'undefined') { %><%- name %><% } %>"></input>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+				<input type="text" data-color-format="hex" class="colorPicker form-control" value="<% if (typeof color !== 'undefined') { %><%- color %><% } %>"/>
+			</div>
+		</div>
+	</script>
+
+	<!-- Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="libraries/lodash.min.js"></script>
+    <script src="libraries/backbone-min.js"></script>
+    <script src="libraries/backbone.marionette.min.js"></script>
+    <script src="libraries/jquery-ui.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+	<script src="libraries/Highstock-2.1.6/js/highstock.js"></script>
+	<script src="libraries/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="libraries/bootstrap-colorpickersliders-master/src/bootstrap.colorpickersliders.js"></script>
+	<script src="libraries/TinyColor-master/tinycolor.js"></script>
+
+	<!-- App -->
+	<script src="js/app.js"></script>
+
+	<!-- Controller -->
+	<script src="js/controller.js"></script>
+
+	<!-- Layout -->
+	<script src="js/layout.js"></script>
+
+	<!-- View -->
+	<script src="js/view/searchBack.js"></script>
+	<script src="js/view/search.js"></script>
+	<script src="js/view/searchList.js"></script>
+	<script src="js/view/counterList.js"></script>
+	<script src="js/view/select.js"></script>
+	<script src="js/view/searchDomain.js"></script>
+	<script src="js/view/submit.js"></script>
+	<script src="js/view/create.js"></script>
+	<script src="js/view/title.js"></script>
+
+	<!-- Model -->
+	<script src="js/model/page.js"></script>
+	<script src="js/model/counter.js"></script>
+	<script src="js/model/domain.js"></script>
+
+	<script src="https://www.eco-counter.ca/auth/key/"></script>
+</body>
+</html>
